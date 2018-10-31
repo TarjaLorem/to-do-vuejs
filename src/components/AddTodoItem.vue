@@ -1,34 +1,35 @@
 <template>
   <div class="add-todo-item">
-    <input :value="newItem" placeholder="Add some item" type="text" class="add add-input">
-    <button @click="addItem" class="add">Add Todo</button>
-    <div class="list-group-item" :key="todo.title" v-for="todo in todos">{{todo.title}}</div>
+    <input v-model="newTodoText" placeholder="Add some item" type="text" class="add add-input">
+    <button v-on:click="addItem" class="add">Add Todo</button>
   </div>
 </template>
 
 <script>
 export default {
   name: 'add-todo-item',
-  computed: {
-     newItem(){
-      return this.$store.getters.newItem;
-    },
-    todos() {
-      return this.$store.state.todos;
+  data () {
+    return {
+      newTodoText: ""
     }
   },
-  methods: {
-    // addItem() {
-    //   this.$store.state.todos.push({
-    //     id: this.idItem,
-    //     title: this.newItem,
-    //     completed: false
-    //   });
-    //   this.newItem = '';
-    //   this.idItem++;
+  computed: {
+    //  newItem(){
+    //   return this.$store.getters.newItem;
     // },
+    // todos() {
+    //   return this.$store.getters.todos;
+    // }
+  },
+  methods: {
     addItem(){
-      this.$store.dispatch('addTodo')
+      if (this.newTodoText != "") {
+        this.$store.commit('ADD_TODO', this.newTodoText);
+        this.newTodoText = "";
+      }
+      // this.$store.dispatch('addTodo')
+      // this.addNewTitle(this.newItem);
+      //   this.newItem = '';
     }
   }
 }

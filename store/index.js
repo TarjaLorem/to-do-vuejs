@@ -5,24 +5,23 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
-    todos: [],
-    newItem: ''
+    todos: []
   },
   getters : {
     newItem: state => state.newItem,
     todos: state => state.todos.filter((todo) => {return !todo.completed}),
   },
   mutations: {
-    ADD_TODO(state){
+    ADD_TODO(state, text){
       state.todos.push({
-        title: state.newItem,
+        title: text,
         completed: false
       })
     }
   },
   actions : {
-    addTodo({commit}){
-      commit('ADD_TODO')
- }
+//     addTodo({commit}){
+//       commit('ADD_TODO')
+//  }
   }
 })
