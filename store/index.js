@@ -5,23 +5,59 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
-    todos: []
+    todos: [],
+    newItem: '',
+    idItem: 0
   },
   getters : {
     newItem: state => state.newItem,
-    todos: state => state.todos.filter((todo) => {return !todo.completed}),
+    todos: state => state.todos.filter((item) => {return !item.done}),
   },
   mutations: {
-    ADD_TODO(state, text){
-      state.todos.push({
-        title: text,
-        completed: false
-      })
-    }
+    GET_TODO(state, item){
+      state.newItem = item
+    },
+    ADD_TODO(state){
+      if(state.newItem != ""){
+        state.todos.push({
+          id: state.idItem,
+          title: state.newItem,
+          done: false
+        })
+      }
+      state.idItem++;
+    },
+    CLEAR_TODO(state){
+      state.newItem = ''
+    },
+    REMOVE_TODO(state, item) {
+      const todos = state.todos
+      todos.splice(todos.indexOf(item), 1)
+      // const index = state.todos.indexOf(item);
+      // if (index >= 0) {
+      //   state.todos.splice(index, 1);
+      // }
+    },
+    DONE_TODO(state, item) {
+      item = state.todos;
+      item.done != item.done
+    },
   },
   actions : {
-//     addTodo({commit}){
-//       commit('ADD_TODO')
-//  }
+    getTodo({commit}, item){
+      commit('GET_TODO', item)
+    },
+    addTodo({commit}){
+      commit('ADD_TODO')
+    },
+    clearTodo({commit}){
+      commit('CLEAR_TODO')
+    },
+    removeTodo({commit}, item){
+      commit('REMOVE_TODO', item)
+    },
+    doneTodo({commit}, item){
+      commit('DONE_TODO', item)
+    }
   }
 })

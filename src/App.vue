@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" class="vue-logo">
     <Form/>
     <ToDoItem/>
     <AddTodoItem/>
@@ -31,9 +30,5 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
-.vue-logo {
-  width: 100px;
-  height: auto;
 }
 </style>
