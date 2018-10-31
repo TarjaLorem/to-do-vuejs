@@ -4,12 +4,12 @@
       <input :value="newItem" @change="getTodo" @keyup.enter="addTodo" placeholder="Add some item" type="text" class="add add-input">
       <button @click="addTodo" class="add">Add</button>
     </div>
-    <div class="todo-items">
-      <div v-for="item in todos" :class="className" @click.self="$emit('complete')" :key="item.id" class="output-text">Item: {{ item.title }}
+    <!--<div class="todo-items">
+      <div v-for="item in todos" :key="item.id" class="output-text">Item: {{ item.title }}
         <button @click="removeTodo" class="add">Remove</button>
         <button @click="doneTodo" class="add">Done</button>
       </div>
-    </div>
+    </div>!-->
   </div>
 </template>
 
@@ -19,10 +19,10 @@ export default {
   computed: {
     newItem(){
       return this.$store.getters.newItem;
-    },
-    todos() {
-      return this.$store.getters.todos;
     }
+    // todos() {
+    //   return this.$store.getters.todos;
+    // }
   },
   methods: {
     getTodo(e){
@@ -34,13 +34,13 @@ export default {
     },
     clearTodo(){
       this.$store.dispatch('clearTodo')
-    },
-    removeTodo(item){
-      this.$store.dispatch('removeTodo', item)
-    },
-    doneTodo(item) {
-      this.$store.dispatch('doneTodo', item)
     }
+    // removeTodo(item){
+    //   this.$store.dispatch('removeTodo', item)
+    // },
+    // doneTodo(item) {
+    //   this.$store.dispatch('doneTodo', item)
+    // }
     // className(){
     //   let classes = ['output-text'];
     //   if (this.todos.done) {
@@ -90,18 +90,5 @@ a {
 }
 .add-input {
   margin-right: 20px;
-}
-.todo-items {
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.output-text {
-  text-decoration: none;
-  font-size: 36px;
-}
-.completed{
-  text-decoration: line-through;
 }
 </style>

@@ -21,7 +21,7 @@ export const store = new Vuex.Store({
       if(state.newItem != ""){
         state.todos.push({
           id: state.idItem,
-          title: state.newItem,
+          title: state.newItem.trim(),
           done: false
         })
       }
