@@ -1,22 +1,18 @@
 <template>
   <div id="app">
-    <Form/>
-    <ToDoItem/>
+    <ItemsList/>
     <AddTodoItem/>
-
   </div>
 </template>
 
 <script>
-import Form from './components/Form.vue'
-import ToDoItem from './components/ToDoItem.vue'
+import ItemsList from './components/ItemsList.vue'
 import AddTodoItem from './components/AddTodoItem.vue'
 
 export default {
   name: 'app',
   components: {
-    Form,
-    ToDoItem,
+    ItemsList,
     AddTodoItem
   }
 }
@@ -30,5 +26,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  display: flex;
+  flex-direction: column;
 }
 </style>

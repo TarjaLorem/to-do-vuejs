@@ -12,6 +12,7 @@ export const store = new Vuex.Store({
   getters : {
     newItem: state => state.newItem,
     todos: state => state.todos.filter((item) => {return !item.done}),
+    // completedTodos: state => state.todos.filter((item) => {return item.done})
   },
   mutations: {
     GET_TODO(state, item){
@@ -33,15 +34,10 @@ export const store = new Vuex.Store({
     REMOVE_TODO(state, item) {
       const todos = state.todos
       todos.splice(todos.indexOf(item), 1)
-      // const index = state.todos.indexOf(item);
-      // if (index >= 0) {
-      //   state.todos.splice(index, 1);
-      // }
     },
-    DONE_TODO(state, item) {
-      item = state.todos;
-      item.done != item.done
-    },
+    DONE_TODO(state, { item }) {
+      item.done = !item.done
+    }
   },
   actions : {
     getTodo({commit}, item){

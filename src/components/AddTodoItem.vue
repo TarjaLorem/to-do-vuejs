@@ -4,12 +4,6 @@
       <input :value="newItem" @change="getTodo" @keyup.enter="addTodo" placeholder="Add some item" type="text" class="add add-input">
       <button @click="addTodo" class="add">Add</button>
     </div>
-    <!--<div class="todo-items">
-      <div v-for="item in todos" :key="item.id" class="output-text">Item: {{ item.title }}
-        <button @click="removeTodo" class="add">Remove</button>
-        <button @click="doneTodo" class="add">Done</button>
-      </div>
-    </div>!-->
   </div>
 </template>
 
@@ -20,9 +14,6 @@ export default {
     newItem(){
       return this.$store.getters.newItem;
     }
-    // todos() {
-    //   return this.$store.getters.todos;
-    // }
   },
   methods: {
     getTodo(e){
@@ -31,29 +22,7 @@ export default {
     addTodo(){
       this.$store.dispatch('addTodo')
       this.$store.dispatch('clearTodo')
-    },
-    clearTodo(){
-      this.$store.dispatch('clearTodo')
     }
-    // removeTodo(item){
-    //   this.$store.dispatch('removeTodo', item)
-    // },
-    // doneTodo(item) {
-    //   this.$store.dispatch('doneTodo', item)
-    // }
-    // className(){
-    //   let classes = ['output-text'];
-    //   if (this.todos.done) {
-    //     classes.push('completed');
-    //   }
-    //   return classes.join(' ');
-    // }
-    // addItem(){
-    //   if (this.newTodoText != "") {
-    //     this.$store.commit('ADD_TODO', this.newTodoText);
-    //     // this.$store.dispatch('addTodo', this.newTodoText)
-    //     this.newTodoText = "";
-    //   }
   }
 }
 </script>
