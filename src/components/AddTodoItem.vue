@@ -4,7 +4,11 @@
       <v-container>
         <v-form>
           <v-layout class="todo-form-width">
-            <v-text-field :value="newItem" @change="getTodo" @keyup.enter="addTodo" label="New task" class="title font-weight-light"></v-text-field>
+            <v-layout column>
+              <v-text-field v-validate="{required: true}" name="task" :value="newItem" @change="getTodo" @keyup.enter="addTodo" label="New task" class="title font-weight-light">
+              </v-text-field>
+              <span v-show="errors.all('task')" class="red--text message-height">{{ errors.first('task') }}</span>
+            </v-layout>
             <v-btn color="success" @click="addTodo" class="subheading">Add</v-btn>
           </v-layout>
         </v-form>
@@ -36,6 +40,8 @@ export default {
 <style scoped>
 .todo-form-width {
   width: 60%;
-  align-items: center;
+}
+.message-height {
+  max-height: 0
 }
 </style>
