@@ -17,7 +17,8 @@ export const store = new Vuex.Store({
       state.newItem = item
     },
     ADD_TODO(state){
-      if(state.newItem != ""){
+      const regex = /^\w+$/;
+      if(state.newItem != "" && regex.test(state.newItem)){
         state.todos.push({
           id: state.idItem,
           title: state.newItem.trim(),

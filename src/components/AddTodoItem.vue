@@ -7,7 +7,7 @@
             <v-layout column>
               <v-text-field v-validate="{required: true}" name="task" :value="newItem" @change="getTodo" @keyup.enter="addTodo" label="New task" class="title font-weight-light">
               </v-text-field>
-              <span v-show="errors.all('task')" class="red--text message-height">{{ errors.first('task') }}</span>
+              <span v-show="errors.has('task')" class="red--text message-height">{{ errors.first('task') }}</span>
             </v-layout>
             <v-btn color="success" @click="addTodo" class="subheading">Add</v-btn>
           </v-layout>
