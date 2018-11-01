@@ -2,12 +2,12 @@
 <div class="items-list">
   <v-layout>
     <v-container>
-    <div class="display-3 font-weight-light">To do what?</div>
+    <div class="display-2 font-weight-light">To do what?</div>
       <v-list>
         <template v-for="(item, index) in todos">
           <v-list-tile :key="index">
             <v-list-tile-content>
-              <v-list-tile-title :class="{'done': item.done}" class="title font-weight-regular">{{ item.title }}</v-list-tile-title>
+              <v-list-tile-title :class="{'done': item.done}" class="title font-weight-regular blue-grey--text">{{ item.title }}</v-list-tile-title>
             </v-list-tile-content>
             <v-list-tile-action>
               <v-checkbox type="checkbox" @change="doneTodo({item})"></v-checkbox>
@@ -42,20 +42,6 @@ export default {
 </script>
 
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
 .done {
   text-decoration: line-through;
 }

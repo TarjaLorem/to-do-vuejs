@@ -1,15 +1,15 @@
 <template>
-  <div class="todo-card">
+  <v-container class="todo-card align-self-center">
     <v-layout>
       <v-flex>
-        <v-card>
+        <v-card class="align-self-center">
           <TodoToolbar/>
           <AddTodoItem/>
           <ItemsList/>
         </v-card>
       </v-flex>
     </v-layout>
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -29,8 +29,6 @@ export default {
 
 <style>
   .todo-card {
-    display: flex;
-    align-self: center;
-    width: 80%;
+    width: 60%;
   }
 </style>

@@ -3,7 +3,7 @@
     <v-layout>
       <v-container>
         <v-form>
-          <v-layout row wrap>
+          <v-layout class="todo-form-width">
             <v-text-field :value="newItem" @change="getTodo" @keyup.enter="addTodo" label="New task" class="title font-weight-light"></v-text-field>
             <v-btn color="success" @click="addTodo" class="subheading">Add</v-btn>
           </v-layout>
@@ -34,21 +34,8 @@ export default {
 </script>
 
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-.add-todo-item {
-
+.todo-form-width {
+  width: 60%;
+  align-items: center;
 }
 </style>

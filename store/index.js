@@ -23,6 +23,8 @@ export const store = new Vuex.Store({
           title: state.newItem.trim(),
           done: false
         })
+      } else {
+        state.idItem--
       }
       state.idItem++;
     },
