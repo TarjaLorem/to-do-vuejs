@@ -1,12 +1,24 @@
 <template>
-  <div class="items-list">
-    <div class="todo-items">
-      <div v-for="item in todos" :key="item.id" class="output-text">
-        <span :class="{'done': item.done}">{{ item.title }}</span>
-        <input type="checkbox" @change="doneTodo({item})">
-        <button @click="removeTodo" class="add">Remove</button>
-      </div>
-    </div>
+<div class="items-list">
+  <v-layout>
+    <v-container>
+    <div class="display-3 font-weight-light">To do what?</div>
+      <v-list>
+        <template v-for="(item, index) in todos">
+          <v-list-tile :key="index">
+            <v-list-tile-content>
+              <v-list-tile-title :class="{'done': item.done}" class="title font-weight-regular">{{ item.title }}</v-list-tile-title>
+            </v-list-tile-content>
+            <v-list-tile-action>
+              <v-checkbox type="checkbox" @change="doneTodo({item})"></v-checkbox>
+            </v-list-tile-action>
+            <v-btn color="error" @click="removeTodo" class="subheading">Remove</v-btn>
+          </v-list-tile>
+          <v-divider v-if="index + 1 < todos.length" :key="`divider-${index}`"></v-divider>
+        </template>
+      </v-list>
+    </v-container>
+  </v-layout>
   </div>
 </template>
 
@@ -43,14 +55,6 @@ li {
 }
 a {
   color: #42b983;
-}
-.items-list {
-  display: flex;
-  margin-bottom: 50px;
-  justify-content: center;
-}
-.output-text {
-  display: flex;
 }
 .done {
   text-decoration: line-through;

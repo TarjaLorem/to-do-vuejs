@@ -11,8 +11,6 @@ export const store = new Vuex.Store({
   },
   getters : {
     newItem: state => state.newItem,
-    todos: state => state.todos.filter((item) => {return !item.done}),
-    // completedTodos: state => state.todos.filter((item) => {return item.done})
   },
   mutations: {
     GET_TODO(state, item){

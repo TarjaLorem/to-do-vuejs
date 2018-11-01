@@ -1,9 +1,15 @@
 <template>
   <div class="add-todo-item">
-    <div class="add-container">
-      <input :value="newItem" @change="getTodo" @keyup.enter="addTodo" placeholder="Add some item" type="text" class="add add-input">
-      <button @click="addTodo" class="add">Add</button>
-    </div>
+    <v-layout>
+      <v-container>
+        <v-form>
+          <v-layout row wrap>
+            <v-text-field :value="newItem" @change="getTodo" @keyup.enter="addTodo" label="New task" class="title font-weight-light"></v-text-field>
+            <v-btn color="success" @click="addTodo" class="subheading">Add</v-btn>
+          </v-layout>
+        </v-form>
+      </v-container>
+    </v-layout>
   </div>
 </template>
 
@@ -17,7 +23,7 @@ export default {
   },
   methods: {
     getTodo(e){
-      this.$store.dispatch('getTodo', e.target.value)
+      this.$store.dispatch('getTodo', e)
     },
     addTodo(){
       this.$store.dispatch('addTodo')
@@ -43,21 +49,6 @@ a {
   color: #42b983;
 }
 .add-todo-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.add-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 50px;
-}
-.add {
-  width: 300px;
-  padding: 15px;
-  font-size: 16px;
-}
-.add-input {
-  margin-right: 20px;
+
 }
 </style>
