@@ -1,8 +1,9 @@
 <template>
   <div class="items-list">
     <div class="todo-items">
-      <div v-for="item in todos" :key="item.id" class="output-text">Item: {{ item.title }}
-        <input type="checkbox" @change="doneTodo({ item })">
+      <div v-for="item in todos" :key="item.id" class="output-text">
+        <span :class="{'done': item.done}">{{ item.title }}</span>
+        <input type="checkbox" @change="doneTodo({item})">
         <button @click="removeTodo" class="add">Remove</button>
       </div>
     </div>
@@ -14,7 +15,7 @@ export default {
   name: 'items-list',
   computed: {
     todos() {
-      return this.$store.getters.todos;
+      return this.$store.state.todos;
     }
   },
   methods: {
