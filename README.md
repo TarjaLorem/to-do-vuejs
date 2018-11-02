@@ -1,29 +1,8 @@
 # TodoApp
+This app help you keep in mind different things that you must to do in future
 
-This project was generated with vue-cli version 3.0.5.
+## For project involved:
+- Vue.js v3.0.5 + vuex;
+- Vuetify;
+- Vee-validate (plugin for Vue.js) for validation forms;
 
-## Project setup
-```
-npm install
-```
-
-### Development server
-```
-npm run serve
-```
-The app will automatically reload if you change any of the source files.
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
