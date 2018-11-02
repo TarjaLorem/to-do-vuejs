@@ -17,7 +17,7 @@ export const store = new Vuex.Store({
       state.newItem = item
     },
     ADD_TODO(state){
-      const regex = /^\w+$/;
+      const regex = /\w+/;
       if(state.newItem != "" && regex.test(state.newItem)){
         state.todos.push({
           id: state.idItem,
