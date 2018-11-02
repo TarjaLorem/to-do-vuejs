@@ -1,4 +1,3 @@
-debugger;
 const CACHE_NAME = "pwa-todo-v1";
 const filesToCache = [
   "./",
@@ -9,7 +8,6 @@ const filesToCache = [
 
 self.addEventListener('install', event => {
   console.log('Installing sw.')
-  // Perform install steps
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
