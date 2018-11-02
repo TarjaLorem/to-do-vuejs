@@ -1,26 +1,8 @@
-# to-do-vuejs
+# TodoApp
+This app help you keep in mind different things that you must to do in future
 
-## Project setup
-```
-npm install
-```
+## For project involved:
+- Vue.js v3.0.5 + vuex;
+- Vuetify;
+- Vee-validate (plugin for Vue.js) for validation forms;
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
