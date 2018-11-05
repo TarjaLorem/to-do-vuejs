@@ -1,9 +1,8 @@
 import Vue from 'vue'
 import './plugins/vuetify'
 import App from './App.vue'
-
-
 import { store } from '../store/index.js'
+
 
 Vue.config.productionTip = false
 

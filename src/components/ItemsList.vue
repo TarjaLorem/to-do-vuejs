@@ -8,7 +8,7 @@
             <v-list-tile :key="index">
               <v-list-tile-content>
                 <v-list-tile-title :class="{'done': item.done}" class="title font-weight-regular blue-grey--text">{{ item.title }}</v-list-tile-title>
-             </v-list-tile-content>
+              </v-list-tile-content>
               <v-list-tile-action>
                 <v-checkbox type="checkbox" @change="doneTodo({item})"></v-checkbox>
               </v-list-tile-action>

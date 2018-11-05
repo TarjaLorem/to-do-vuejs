@@ -1,8 +1,8 @@
 <template>
-<div id="app">
-  <v-app>
-    <TodoCard/>
-  </v-app>
+  <div id="app">
+    <v-app>
+      <TodoCard/>
+    </v-app>
   </div>
 </template>
 
