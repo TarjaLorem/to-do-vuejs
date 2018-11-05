@@ -7,7 +7,7 @@
         <template v-for="(item, index) in todos">
           <v-list-tile :key="index">
             <v-list-tile-content>
-              <v-list-tile-title :class="{'done': item.done}" class="title font-weight-regular blue-grey--text">{{ item.title }}</v-list-tile-title>
+              <v-list-tile-title @dblclick="editTodo(item)" :class="{'done': item.done}" class="title font-weight-regular blue-grey--text">{{ item.title }}</v-list-tile-title>
             </v-list-tile-content>
             <v-list-tile-action>
               <v-checkbox type="checkbox" @change="doneTodo({item})"></v-checkbox>
@@ -36,7 +36,10 @@ export default {
     },
     doneTodo(item) {
       this.$store.dispatch('doneTodo', item)
-    }
+    },
+    editTodo(item){
+      this.$store.dispatch('editTodo', item)
+    },
   }
 }
 </script>

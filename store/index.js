@@ -27,6 +27,12 @@ export const store = new Vuex.Store({
       state.idItem++;
       }
     },
+    EDIT_TODO(state, item){
+      const todos = state.todos
+      todos.splice(todos.indexOf(item), 1)
+      state.todos = todos
+      state.newItem = item.title
+   },
     CLEAR_TODO(state){
       state.newItem = ''
     },
@@ -44,6 +50,9 @@ export const store = new Vuex.Store({
     },
     addTodo({commit}){
       commit('ADD_TODO')
+    },
+    editTodo({commit}, item){
+      commit('EDIT_TODO', item)
     },
     clearTodo({commit}){
       commit('CLEAR_TODO')
