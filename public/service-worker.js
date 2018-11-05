@@ -2,7 +2,7 @@ const CACHE_NAME = "pwa-todo-v1";
 const filesToCache = [
   "./",
   "./index.html",
-  "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css"
+  "./img/icons"
 ];
 
 self.addEventListener('install', event => {
@@ -13,5 +13,19 @@ self.addEventListener('install', event => {
         console.log('Opened cache');
         return cache.addAll(filesToCache);
       })
+  );
+});
+
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request)
+      .then(response => {
+        // Cache hit - return response
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+      }
+    )
   );
 });
