@@ -19,6 +19,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
 
 
 export default {
@@ -29,9 +30,9 @@ export default {
     ])
   },
   methods: {
-    getTodo(e){
-      this.$store.dispatch('getTodo', e)
-    },
+    ...mapActions([
+      'getTodo'
+    ]),
     addTodo(){
       this.$store.dispatch('addTodo').then(() => {
       this.$store.dispatch('clearTodo')
