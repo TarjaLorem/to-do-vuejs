@@ -5,9 +5,11 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
+    editingTask: {},
     todos: [],
     newItem: '',
-    idItem: 0
+    idItem: 0,
+    edit: false
   },
   getters : {
     newItem: state => state.newItem,
@@ -22,7 +24,8 @@ export const store = new Vuex.Store({
         state.todos.push({
           id: state.idItem,
           title: state.newItem.trim(),
-          done: false
+          done: false,
+          edit: state.edit
         })
       state.idItem++;
       }
@@ -32,6 +35,8 @@ export const store = new Vuex.Store({
       todos.splice(todos.indexOf(item), 1)
       state.todos = todos
       state.newItem = item.title
+      state.idItem = item.id
+      state.edit != state.edit
    },
     CLEAR_TODO(state){
       state.newItem = ''
