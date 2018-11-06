@@ -8,11 +8,12 @@ export const store = new Vuex.Store({
     editingTask: {},
     todos: [],
     newItem: '',
-    idItem: 0,
-    edit: false
+    idItem: 0
   },
   getters : {
     newItem: state => state.newItem,
+    todos: state => state.todos,
+    editingTask: state => state.editingTask
   },
   mutations: {
     GET_TODO(state, item){
@@ -24,15 +25,13 @@ export const store = new Vuex.Store({
         state.todos.push({
           id: state.idItem,
           title: state.newItem.trim(),
-          done: false,
-          edit: state.edit
+          done: false
         })
       state.idItem++;
       }
     },
     EDIT_TODO(state, item){
       state.editingTask = item
-      item.edit = !item.edit
     },
     CLEAR_TODO(state){
       state.newItem = ''
@@ -53,7 +52,7 @@ export const store = new Vuex.Store({
       commit('ADD_TODO')
     },
     clearTodo({commit}){
-      commit('CLEAR_TODO')
+      commit('GET_TODO', '')
     },
     editTodo({commit}, item){
       commit('EDIT_TODO', item)

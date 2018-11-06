@@ -1,7 +1,7 @@
 <template>
   <v-container class="todo-card align-self-center">
     <v-layout>
-      <v-flex>
+      <v-flex xs12 sm6 offset-sm3 md lg xl>
         <v-card class="align-self-center">
           <TodoToolbar/>
           <AddTodoItem/>
@@ -28,7 +28,5 @@ export default {
 </script>
 
 <style>
-  .todo-card {
-    width: 60%;
-  }
+
 </style>
